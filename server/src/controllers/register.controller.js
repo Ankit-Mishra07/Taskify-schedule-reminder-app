@@ -53,4 +53,16 @@ async (req, res) => {
 })
 
 
+router.get('/register' , async (req, res) => {
+    try{
+
+        const register = await Register.find().lean().exec()
+        res.status(200).send(register)
+
+    }catch(e) {
+        return res.status(500).json({status: "Failed", message: e.message})
+    }
+})
+
+
 module.exports = router
