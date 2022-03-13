@@ -12,7 +12,7 @@ body('name').isLength({min:1}).withMessage('name is required'),
 body('mobile').isLength({min:10, max  :10}).withMessage('valid mobile number is required'),
 body('email').custom(async (value) => {
     const isEmail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,20}$/.test(value);
-    const listOfDomain = ['@gmail.com', "@masaischool.com", '@yahoo.com']
+    const listOfDomain = ['gmail.com', "masaischool.com", 'yahoo.com']
     const email = value.split("@");
     
     if(!listOfDomain.includes(email[1])) {
