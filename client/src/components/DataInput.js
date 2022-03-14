@@ -3,6 +3,7 @@ import styles from '../styles/datainput.module.css'
 const DataInput = () => {
   const [form, setForm] = useState({})
 
+  
 
   return (
     <div className={styles.mainInputBox}>

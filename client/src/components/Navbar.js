@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from '../styles/navbar.module.css'
 import {Link} from "react-router-dom"
-const Navbar = () => {
+const Navbar = ({setShowSignup, showSignup}) => {
 
     const [myCurrentTime, setMyCurrentTime] = useState("Time")
 
