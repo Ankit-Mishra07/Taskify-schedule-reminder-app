@@ -3,21 +3,21 @@ import styles from '../styles/datainput.module.css'
 const DataInput = () => {
   const [form, setForm] = useState({})
 
-  
+
   return (
     <div className={styles.mainInputBox}>
       <h3>Enter Your Schedule data Here</h3>
       <form>
         <div>
         <label for="title">Enter Title</label>
-        <input type="text" name='title' placeholder='Enter title here' required/>
         <sup>*</sup>
+        <input type="text" name='title' placeholder='Enter title here' required/>
         </div>
 
         <div>
         <label for="scheduledDateTime">Select Time</label>
-        <input type="time" name='scheduledDateTime' required/>
         <sup>*</sup>
+        <input type="time" name='scheduledDateTime' required/>
         </div>
 
         <div>
