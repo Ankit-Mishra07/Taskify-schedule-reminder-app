@@ -25,16 +25,18 @@ const Navbar = ({setShowSignup, showSignup}) => {
         </div>
 
         <div className={styles.navigation}>
-            { false &&
+            { true &&
             <div>
             
-            <Link className={styles.link} to="/"><button className={styles.loginbtn}>LOGIN</button></Link>
-            <Link className={styles.link} to="/"><button className={styles.signupbtn}>SIGNUP</button></Link>
+            <button className={styles.loginbtn} >LOGIN</button>
+            <button className={styles.signupbtn} onClick={() =>
+            setShowSignup(!showSignup)
+            }>SIGNUP</button>
             </div>
             }
 
             {
-                true && 
+                false && 
                 <div className={styles.myName_time}>
                     <button className={styles.loginbtn}>AnkitMisra</button>
                     <button className={styles.signupbtn}>{myCurrentTime}</button>
