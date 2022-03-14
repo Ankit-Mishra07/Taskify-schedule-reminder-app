@@ -10,19 +10,19 @@ const DataInput = () => {
       <h3>Enter Your Schedule data Here</h3>
       <form>
         <div>
-        <label for="title">Enter Title</label>
+        <label htmlFor="title">Enter Title</label>
         <sup>*</sup>
         <input type="text" name='title' placeholder='Enter title here' required/>
         </div>
 
         <div>
-        <label for="scheduledDateTime">Select Time</label>
+        <label htmlFor="scheduledDateTime">Select Time</label>
         <sup>*</sup>
         <input type="time" name='scheduledDateTime' required/>
         </div>
 
         <div>
-        <label>Enter Meet URL</label>
+        <label htmlFor='link'>Enter Meet URL</label>
         <input type="url"  name="link" placeholder='Optional(For Tasks)'/>
         </div>
 
