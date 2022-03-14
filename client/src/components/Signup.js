@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from '../styles/signup.module.css'
 import Error from './Error'
-const Signup = ({showSignup, setShowSignup}) => {
+const Signup = ({showSignup, setShowSignup, setShowLogin}) => {
   const [error, setError] = useState(false)
   const [errorMsg, setErrorMsg] = useState()
 
@@ -74,7 +74,10 @@ const Signup = ({showSignup, setShowSignup}) => {
         <input type="password" name='password' placeholder='Enter password'required onChange={(e) => handleInput(e)} autoComplete="off"/>
         <div>
         <button type='submit' onClick={(e) => handleSignup(e)}>Signup</button>
-        <button>Already have an account</button>
+        <button onClick={() => {
+          setShowSignup(false)
+          setShowLogin(true)
+        }}>Already have an account</button>
         </div>
         </form>
     </div>

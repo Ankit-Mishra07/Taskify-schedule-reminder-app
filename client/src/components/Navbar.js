@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from '../styles/navbar.module.css'
 import {Link} from "react-router-dom"
-const Navbar = ({setShowSignup, showSignup}) => {
+const Navbar = ({setShowSignup, showSignup, setShowLogin, showLogin} ) => {
 
     const [myCurrentTime, setMyCurrentTime] = useState("Time")
 
@@ -28,7 +28,11 @@ const Navbar = ({setShowSignup, showSignup}) => {
             { true &&
             <div>
             
-            <button className={styles.loginbtn} >LOGIN</button>
+            <button className={styles.loginbtn} 
+            onClick={() => {
+                setShowLogin(!showLogin)
+            }}
+            >LOGIN</button>
             <button className={styles.signupbtn} onClick={() =>
             setShowSignup(!showSignup)
             }>SIGNUP</button>
