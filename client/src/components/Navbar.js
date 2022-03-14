@@ -16,10 +16,6 @@ const Navbar = () => {
     }
 
     setInterval(getCurrentTime, 1000)
-    // useEffect(() => {
-    //    getCurrentTime()
-    // },[myCurrentTime])
-
 
 
   return (
