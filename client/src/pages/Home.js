@@ -19,7 +19,7 @@ const Home = () => {
 
     {
       showSignup && 
-      <Signup />
+      <Signup setShowSignup={setShowSignup} showSignup={showSignup}/>
     }
     </>
   )

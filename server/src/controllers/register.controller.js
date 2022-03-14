@@ -43,6 +43,11 @@ async (req, res) => {
             return res.status(400).json({ errors: newError})
         }
 
+        // let userBymobile = await Register.find({mobile : req.body.mobile})
+
+        // if(userBymobile) {
+        //     return res.status(400).json({ errors: [{mobile : }]})
+        // }
         const register = await Register.create(req.body)
 
         return res.status(201).send(register)
@@ -55,7 +60,7 @@ async (req, res) => {
 
 router.get('/register' , async (req, res) => {
     try{
-
+      
         const register = await Register.find().lean().exec()
         res.status(200).send(register)
 

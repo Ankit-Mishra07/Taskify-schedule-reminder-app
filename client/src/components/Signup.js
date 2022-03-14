@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from '../styles/signup.module.css'
 import Error from './Error'
-const Signup = () => {
+const Signup = ({showSignup, setShowSignup}) => {
   const [error, setError] = useState(false)
   const [errorMsg, setErrorMsg] = useState()
 
@@ -45,9 +45,20 @@ const Signup = () => {
        setError(true)
       }else {
         console.log(res)
+        if(res.status === 'Failed') {
+          setError(true)
+          setErrorMsg("Please try with different data")
+          return
+        }
+        setError(false)
+        setShowSignup(false)
+
       }
     })
-    .catch((e) => console.log("eror"))
+    .catch((e) => {
+      setError(true)
+      setErrorMsg("Please try with different data")
+    })
 
   }
 
