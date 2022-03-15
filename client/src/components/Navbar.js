@@ -31,11 +31,13 @@ const Navbar = ({setShowSignup, showSignup, setShowLogin, showLogin} ) => {
             <button className={styles.loginbtn} 
             onClick={() => {
                 setShowLogin(!showLogin)
+                setShowSignup(false)
             }}
             >LOGIN</button>
-            <button className={styles.signupbtn} onClick={() =>
+            <button className={styles.signupbtn} onClick={() => {
             setShowSignup(!showSignup)
-            }>SIGNUP</button>
+            setShowLogin(false)
+             } }>SIGNUP</button>
             </div>
             }
 
