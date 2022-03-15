@@ -72,12 +72,12 @@ const Signup = ({showSignup, setShowSignup, setShowLogin}) => {
         <input type="number" name="mobile" placeholder='Enter mobile number' required onChange={(e) => handleInput(e)} autoComplete="off"/>
         <input type="email" name='email' placeholder='Enter email' required onChange={(e) => handleInput(e)} autoComplete="off"/>
         <input type="password" name='password' placeholder='Enter password'required onChange={(e) => handleInput(e)} autoComplete="off"/>
-        <div>
-        <button type='submit' onClick={(e) => handleSignup(e)}>Signup</button>
+        <div className={styles.signup_btn_box}>
         <button onClick={() => {
           setShowSignup(false)
           setShowLogin(true)
         }}>Already have an account</button>
+        <button type='submit' onClick={(e) => handleSignup(e)}>Signup</button>
         </div>
         </form>
     </div>
