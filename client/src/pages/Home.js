@@ -9,6 +9,9 @@ const Home = () => {
 
   const [showSignup, setShowSignup] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
+  const [isLogin, setIsLogin] = useState(false)
+  
+
   return (
     <>
     <Navbar setShowSignup={setShowSignup} showSignup={showSignup} setShowLogin={setShowLogin} showLogin={showLogin}/>

@@ -4,8 +4,37 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    border : 1px solid red
 }
 
 .mainInputBox > h3 {
+    color : #1A374D;
 
+}
+
+.FormInput > div {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.FormInput > div>input {
+    width: 200px;
+    margin-left: 10px;
+    outline: none;
+    border: none;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 4px;
+    color: #1A374D;
+}
+
+.FormInput > div  label {
+    color:#1A374D;
+}
+
+.FormInput > div sup {
+    color: red;
+    font-weight: 600;
 }
