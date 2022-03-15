@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styles from '../styles/signup.module.css'
 import Error from './Error'
+import swal from 'sweetalert'
 const Signup = ({showSignup, setShowSignup, setShowLogin}) => {
   const [error, setError] = useState(false)
   const [errorMsg, setErrorMsg] = useState()
@@ -47,11 +48,13 @@ const Signup = ({showSignup, setShowSignup, setShowLogin}) => {
         console.log(res)
         if(res.status === 'Failed') {
           setError(true)
-          setErrorMsg("Please try with different data")
+          setErrorMsg("Please try with different data, mobile number might be already registered")
           return
         }
         setError(false)
         setShowSignup(false)
+        swal("Thank You", "You have Signed in, Please login!", "success");
+        setShowLogin(true)
 
       }
     })

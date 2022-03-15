@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Error from './Error'
 import styles from '../styles/signup.module.css'
+import swal from 'sweetalert'
 const Login = ({setShowSignup, setShowLogin}) => {
 
   const [error, setError] = useState(false)
@@ -31,9 +32,13 @@ const Login = ({setShowSignup, setShowLogin}) => {
         setErrorMsg(res.msg)
         setError(true)
       }else {
+
         setError(false)
         setErrorMsg('')
         setShowLogin(false)
+
+        swal("Thank You", "You have logged in successfully!", "success");
+
       }
     })
 
@@ -48,9 +53,9 @@ const Login = ({setShowSignup, setShowLogin}) => {
     <input type="number" name="mobile" placeholder='Enter mobile number' required autoComplete="off" onChange={(e) => setNum({mobile : e.target.value})}/>
     <div className={styles.signup_btn_box}>
     <button onClick={() => {
-      setShowSignup(false)
-      setShowLogin(true)
-    }}>Don't have an account</button>
+      setShowSignup(true)
+      setShowLogin(false)
+    }}>create new account</button>
     <button type='submit' onClick={(e) => handleLogin(e)}>Login</button>
     </div>
     </form>
