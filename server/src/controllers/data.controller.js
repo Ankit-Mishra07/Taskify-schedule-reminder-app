@@ -19,8 +19,8 @@ router.get("/", async(req, res) => {
         if(userid) {
             data = await Data.find({userId : userid})
         }else {
-            data = await Data.find().lean().exec()
-        }        
+            return res.send({error : "Please login for your data"})
+        }   
         
         return res.status(200).send(data)
 
@@ -28,6 +28,15 @@ router.get("/", async(req, res) => {
         return res.status(500).json({status: "Failed", message: e.message})
     }
 })
+
+router.put('/', async(req, res) => {
+    try {
+
+    }catch(e){
+        return res.status(500).json({status: "Failed", message: e.message})
+    }
+})
+
 
 module.exports = router
 
