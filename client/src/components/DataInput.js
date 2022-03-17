@@ -30,7 +30,7 @@ const DataInput = () => {
 
   return (
     <div className={styles.mainInputBox}>
-      <h3>Enter Your Schedule data Here</h3>
+      <h3>Enter Your Today's Schedule data Here</h3>
       {
         error && 
         <Error text={errorMsg}/>
