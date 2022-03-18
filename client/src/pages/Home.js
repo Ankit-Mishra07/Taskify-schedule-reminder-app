@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import audio from '../components/audio'
 import DataInput from '../components/DataInput'
 import DataOutput from '../components/DataOutput'
 import Login from '../components/Login'
@@ -9,6 +10,9 @@ import styles from '../styles/home.module.css'
 import { getLocal } from '../utils/utils'
 const Home = () => {
 
+  const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3');
+  audio.loop = true;
+  // audio.play()
   const [showSignup, setShowSignup] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
   const [isLogin, setIsLogin] = useState(false)
@@ -18,6 +22,20 @@ const Home = () => {
   const [currentDate, setCurrentDate] = useState("")
 
   const [todayS, setTodayS] = useState([])
+
+
+  const [myCurrentTime, setMyCurrentTime] = useState("Time")
+  const getCurrentTime = () => {
+      const current_time = new Date();
+      let time = current_time.toLocaleTimeString("en-US", {
+          hour: "2-digit",
+          minute: "2-digit",
+      });
+      time = time.split(" ").join("")    
+      setMyCurrentTime(time)
+  }
+
+  setInterval(getCurrentTime, 1000)
 
   
   useEffect(() => {
@@ -85,6 +103,9 @@ const Home = () => {
        todayS={todayS}
        prev={prev}
        setPrev={setPrev}
+       myCurrentTime={myCurrentTime}
+       audio={audio}
+       currentDate={currentDate}
       />
     </div>
     {

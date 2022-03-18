@@ -37,7 +37,7 @@ const DataInput = ({isLogin, data, setData, getData}) => {
       time = form['scheduledDateTime'].split(':').map(Number)
 
     if(time[0] >= 12) {
-      form['scheduledDateTime'] = (time[0]!==12 ? "0" : '')+ (time[0]%12 || 12) + ":" + time[1] + "PM"
+      form['scheduledDateTime'] = (time[0] < 10 ? "0" : '')+ (time[0]%12 || 12) + ":" + (time[1] < 10 ? ('0' + time[1]) : time[1]) + "PM"
     }else if(time[0] < 12) {
       form['scheduledDateTime'] =  (time[0] < 10 ? ('0' + time[0]) : time[0]) + ":" + (time[1] < 10 ? ('0' + time[1]) : time[1]) + "AM"
     } 
