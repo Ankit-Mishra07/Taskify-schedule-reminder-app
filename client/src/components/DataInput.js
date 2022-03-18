@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../styles/datainput.module.css'
+import { getLocal } from '../utils/utils'
 import Error from './Error'
-const DataInput = () => {
+const DataInput = ({isLogin,setIsLogin}) => {
   const [form, setForm] = useState({})
   const [error, setError] = useState(false)
   const [errorMsg, setErrorMsg] = useState("")
@@ -15,6 +16,11 @@ const DataInput = () => {
     })
   }
 
+  console.log(form)
+
+
+
+
   const handleData = (e) => {
     e.preventDefault()
 
@@ -26,7 +32,75 @@ const DataInput = () => {
       return
     }
 
+    let time = form['scheduledDateTime'].split(':')
+
+    if(time[1].length <= 2) {
+      time = form['scheduledDateTime'].split(':').map(Number)
+
+    if(time[0] >= 12) {
+      form['scheduledDateTime'] = (time[0]!==12 ? "0" : '')+ (time[0]%12 || 12) + ":" + time[1] + "PM"
+    }else if(time[0] < 12) {
+      form['scheduledDateTime'] = time[0] + ":" + time[1] + "AM"
+    } 
+
+  }else {
+    form['scheduledDateTime'] =  form['scheduledDateTime']
   }
+
+    let timeElapsed = Date.now();
+    let today = new Date(timeElapsed);
+    today = today.toLocaleDateString();
+
+    today = today.split("/")
+    today = today[2] + "-" + ( (today[0]<10) ? ("0"+today[0]) : today[0] ) + "-" + ( (today[1]<10) ? ("0"+today[1]) : today[1] )
+
+    console.log(today)
+    console.log(form)
+    let getLog = getLocal('taskifyUser')
+    console.log(getLog)
+    
+    let obj = {
+      ...form,
+      creationDate : today,
+      userId : getLog[getLog.length-1]._id
+    }
+
+    fetch('http://localhost:5000/data', {
+      method : 'POST',
+      body : JSON.stringify(obj),
+      headers : {
+        'Content-Type' : 'application/json'
+      }
+    })
+    .then((res) => res.json())
+    .then((res) => {
+      if(res.status === 'Failed') {
+        setError(true)
+        setErrorMsg('Something went wrong')
+        return
+      }
+      console.log(res)
+
+    })
+    .catch((e) => {
+      setError(true)
+      setErrorMsg('Something went wrong')
+    })
+
+  }
+
+useEffect(() => {
+  if(isLogin === false) {
+    setError(true)
+    setErrorMsg('Please Login!')
+  }else {
+    setError(false)
+  }
+},[isLogin])
+
+
+
+
 
   return (
     <div className={styles.mainInputBox}>
@@ -60,7 +134,7 @@ const DataInput = () => {
         </div>
 
         <div>
-          <button type='submit' onClick={(e) => handleData(e)} disabled={false}>Save</button>
+          <button type='submit' onClick={(e) => handleData(e)} disabled={!isLogin}>Save</button>
         </div>
       </form>
     </div>
