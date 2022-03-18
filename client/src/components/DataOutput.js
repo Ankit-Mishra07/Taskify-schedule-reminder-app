@@ -1,8 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import styles from '../styles/dataoutput.module.css'
+const DataOutput = ({isLogin}) => {
 
-const DataOutput = () => {
+
+
   return (
-    <div>DataOutput</div>
+    <div className={styles.dataOut_container}>
+      <nav className={styles.dataOut_nav}>
+        <input type="date" />
+        <button>Filter</button>
+      </nav>
+
+      {
+        isLogin && 
+        <div>
+          
+        </div>
+      }
+    </div>
   )
 }
 
