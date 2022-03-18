@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import styles from '../styles/navbar.module.css'
 import {Link} from "react-router-dom"
-const Navbar = ({setShowSignup, showSignup, setShowLogin, showLogin} ) => {
+const Navbar = ({setShowSignup, showSignup, setShowLogin, showLogin, isLogin,user} ) => {
 
     const [myCurrentTime, setMyCurrentTime] = useState("Time")
-
     const getCurrentTime = () => {
         const current_time = new Date();
         let time = current_time.toLocaleTimeString("en-US", {
@@ -25,7 +24,7 @@ const Navbar = ({setShowSignup, showSignup, setShowLogin, showLogin} ) => {
         </div>
 
         <div className={styles.navigation}>
-            { true &&
+            { !isLogin &&
             <div>
             
             <button className={styles.loginbtn} 
@@ -42,9 +41,9 @@ const Navbar = ({setShowSignup, showSignup, setShowLogin, showLogin} ) => {
             }
 
             {
-                false && 
+                isLogin && 
                 <div className={styles.myName_time}>
-                    <button className={styles.loginbtn}>AnkitMisra</button>
+                    <button className={styles.loginbtn}>{user.name}</button>
                     <button className={styles.signupbtn}>{myCurrentTime}</button>
                 </div>
             }
