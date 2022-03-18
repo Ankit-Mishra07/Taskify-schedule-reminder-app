@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import styles from '../styles/dataoutput.module.css'
 import {BsCalendar2Fill, BsFillAlarmFill} from 'react-icons/bs'
-const DataOutput = ({isLogin, data, setData}) => {
+
+const TodaySch = ({isLogin, data, setData, todayS, prev, setPrev}) => {
 
 
 
@@ -16,7 +17,7 @@ const DataOutput = ({isLogin, data, setData}) => {
         isLogin && 
         <div>
           {
-            data.map((elem) => (
+            todayS.map((elem) => (
               <div className={styles.card}>
                 
                 <div>{elem.title}</div>
@@ -32,4 +33,4 @@ const DataOutput = ({isLogin, data, setData}) => {
   )
 }
 
-export default DataOutput
+export default TodaySch

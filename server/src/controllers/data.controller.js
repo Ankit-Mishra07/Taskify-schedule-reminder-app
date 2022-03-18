@@ -13,11 +13,14 @@ router.post("/", async(req, res) =>{
 
 router.get("/", async(req, res) => {
     try {
+        const page = +req.query.page || 1
+        const size = +req.query.size || 2
+        const skip = (page - 1) * size 
 
         let data;
         let userid = req.query.user
         if(userid) {
-            data = await Data.find({userId : userid})
+            data = await Data.find({userId : userid}).skip(skip).limit(size).lean().exec();
         }else {
             return res.send({error : "Please login for your data"})
         }   

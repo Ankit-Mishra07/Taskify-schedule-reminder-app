@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from '../styles/datainput.module.css'
 import { getLocal } from '../utils/utils'
 import Error from './Error'
-const DataInput = ({isLogin,setIsLogin}) => {
+const DataInput = ({isLogin, data, setData}) => {
   const [form, setForm] = useState({})
   const [error, setError] = useState(false)
   const [errorMsg, setErrorMsg] = useState("")
@@ -16,7 +16,6 @@ const DataInput = ({isLogin,setIsLogin}) => {
     })
   }
 
-  console.log(form)
 
 
 
@@ -54,8 +53,6 @@ const DataInput = ({isLogin,setIsLogin}) => {
     today = today.split("/")
     today = today[2] + "-" + ( (today[0]<10) ? ("0"+today[0]) : today[0] ) + "-" + ( (today[1]<10) ? ("0"+today[1]) : today[1] )
 
-    console.log(today)
-    console.log(form)
     let getLog = getLocal('taskifyUser')
     console.log(getLog)
     
