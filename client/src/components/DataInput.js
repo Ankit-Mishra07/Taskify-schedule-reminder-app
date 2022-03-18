@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from '../styles/datainput.module.css'
 import { getLocal } from '../utils/utils'
 import Error from './Error'
-const DataInput = ({isLogin, data, setData}) => {
+const DataInput = ({isLogin, data, setData, getData}) => {
   const [form, setForm] = useState({})
   const [error, setError] = useState(false)
   const [errorMsg, setErrorMsg] = useState("")
@@ -39,12 +39,14 @@ const DataInput = ({isLogin, data, setData}) => {
     if(time[0] >= 12) {
       form['scheduledDateTime'] = (time[0]!==12 ? "0" : '')+ (time[0]%12 || 12) + ":" + time[1] + "PM"
     }else if(time[0] < 12) {
-      form['scheduledDateTime'] = time[0] + ":" + time[1] + "AM"
+      form['scheduledDateTime'] =  (time[0] < 10 ? ('0' + time[0]) : time[0]) + ":" + (time[1] < 10 ? ('0' + time[1]) : time[1]) + "AM"
     } 
 
   }else {
     form['scheduledDateTime'] =  form['scheduledDateTime']
   }
+
+
 
     let timeElapsed = Date.now();
     let today = new Date(timeElapsed);
@@ -77,6 +79,7 @@ const DataInput = ({isLogin, data, setData}) => {
         return
       }
       console.log(res)
+      getData()
 
     })
     .catch((e) => {
@@ -84,6 +87,7 @@ const DataInput = ({isLogin, data, setData}) => {
       setErrorMsg('Something went wrong')
     })
 
+   
   }
 
 useEffect(() => {
@@ -112,6 +116,7 @@ useEffect(() => {
         <sup>*</sup></span>
         <input type="text" name='title' placeholder='Enter title here' required
         onChange={(e) => handleInput(e)}
+        minlength="1" maxlength="60"
         />
         </div>
 

@@ -15,19 +15,11 @@ const Home = () => {
   const [prev, setPrev] = useState(false)
   const [user, setUser] = useState([])
   const [data, setData] = useState([])  
+  const [currentDate, setCurrentDate] = useState("")
 
   const [todayS, setTodayS] = useState([])
 
-
-
-  let timeElapsed = Date.now();
-  let today = new Date(timeElapsed);
-  today = today.toLocaleDateString();
-
-  today = today.split("/")
-  today = today[2] + "-" + ( (today[0]<10) ? ("0"+today[0]) : today[0] ) + "-" + ( (today[1]<10) ? ("0"+today[1]) : today[1] )
-
-
+  
   useEffect(() => {
     let getLog = getLocal('taskifyUser')
     if(getLog === null || getLog.length === 0) {
@@ -36,27 +28,39 @@ const Home = () => {
       setIsLogin(true)
       setUser(getLog[getLog.length-1])
     }
-
+    
   },[isLogin])
-
-
+  
+  
   const getData = async () => {
     let res = await fetch(`http://localhost:5000/data?user=${user._id}`)
     let dat = await res.json()
     console.log("data" ,dat)
     setData(dat)
-
+    
     let cur = dat.filter((el) => {
-      return today === el.creationDate
+      return currentDate === el.creationDate
     })
+    console.log(currentDate)
     setTodayS(cur)
+    
+  }
+  
+  useEffect(() => {
+    let timeElapsed = Date.now();
+    let today = new Date(timeElapsed);
+    today = today.toLocaleDateString();
+  
+    today = today.split("/")
+    today = today[2] + "-" + ( (today[0]<10) ? ("0"+today[0]) : today[0] ) + "-" + ( (today[1]<10) ? ("0"+today[1]) : today[1] )
+      setCurrentDate(today)
+  }, [currentDate])
 
-   }
- 
-   useEffect(() => {
-     getData()
-   },[])
-
+  useEffect(() => {
+    getData()
+  },[currentDate])
+  
+  
 
 
   return (
@@ -71,6 +75,8 @@ const Home = () => {
        isLogin={isLogin}
        data={data}
        setData={setData}
+       getData={getData}
+
       />
       <TodaySch 
        isLogin={isLogin}
