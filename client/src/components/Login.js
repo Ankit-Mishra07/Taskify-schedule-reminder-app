@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Error from './Error'
 import styles from '../styles/signup.module.css'
 import swal from 'sweetalert'
+import { setLocal } from '../utils/utils'
 const Login = ({setShowSignup, setShowLogin}) => {
 
   const [error, setError] = useState(false)
@@ -37,7 +38,10 @@ const Login = ({setShowSignup, setShowLogin}) => {
         setErrorMsg('')
         setShowLogin(false)
 
+        setLocal("taskifyUser", num)
+
         swal("Thank You", "You have logged in successfully!", "success");
+
 
       }
     })

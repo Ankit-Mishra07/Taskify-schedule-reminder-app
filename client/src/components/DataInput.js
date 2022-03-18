@@ -60,7 +60,7 @@ const DataInput = () => {
         </div>
 
         <div>
-          <button type='submit' onClick={(e) => handleData(e)}>Save</button>
+          <button type='submit' onClick={(e) => handleData(e)} disabled={false}>Save</button>
         </div>
       </form>
     </div>
