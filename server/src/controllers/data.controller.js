@@ -29,13 +29,6 @@ router.get("/", async(req, res) => {
     }
 })
 
-router.put('/', async(req, res) => {
-    try {
-
-    }catch(e){
-        return res.status(500).json({status: "Failed", message: e.message})
-    }
-})
 
 
 module.exports = router
