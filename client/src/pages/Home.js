@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import DataInput from '../components/DataInput'
 import DataOutput from '../components/DataOutput'
 import Login from '../components/Login'
@@ -11,18 +11,39 @@ const Home = () => {
   const [showSignup, setShowSignup] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
   const [isLogin, setIsLogin] = useState(false)
+  const [user, setUser] = useState([])
+  const [data, setData] = useState([])  
   
-  let getLog = getLocal('taskifyUser')
+  useEffect(() => {
+    let getLog = getLocal('taskifyUser')
+    if(getLog === null || getLog.length === 0) {
+      setIsLogin(false)
+    } else {
+      setIsLogin(true)
+      setUser(getLog[getLog.length-1])
+    }
 
-  if(getLog === null || getLog.length === 0) {
-    setIsLogin(false)
-  } else {
-    setIsLogin(true)
-  }
+  },[isLogin])
+
+
+  const getData = async () => {
+    let res = await fetch(`http://localhost:5000/data?user=${user._id}`)
+    let dat = await res.json()
+    console.log("data" ,dat)
+   }
+ 
+   useEffect(() => {
+     getData()
+   },[])
+
+
 
   return (
     <>
-    <Navbar setShowSignup={setShowSignup} showSignup={showSignup} setShowLogin={setShowLogin} showLogin={showLogin}/>
+    <Navbar setShowSignup={setShowSignup} showSignup={showSignup} setShowLogin={setShowLogin} showLogin={showLogin}
+     isLogin={isLogin}
+     user={user}
+    />
 
     <div className={styles.main__container}>
       <DataInput 
@@ -31,7 +52,6 @@ const Home = () => {
       />
       <DataOutput 
        isLogin={isLogin}
-       setIsLogin={setIsLogin}
       />
     </div>
 
