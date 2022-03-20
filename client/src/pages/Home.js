@@ -11,7 +11,6 @@ import { getLocal } from '../utils/utils'
 const Home = () => {
 
   const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3');
-  audio.loop = true;
   // audio.play()
   const [showSignup, setShowSignup] = useState(false)
   const [showLogin, setShowLogin] = useState(false)

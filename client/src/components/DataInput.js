@@ -37,7 +37,7 @@ const DataInput = ({isLogin, data, setData, getData}) => {
       time = form['scheduledDateTime'].split(':').map(Number)
 
     if(time[0] >= 12) {
-      form['scheduledDateTime'] = (time[0] < 10 ? "0" : '')+ (time[0]%12 || 12) + ":" + (time[1] < 10 ? ('0' + time[1]) : time[1]) + "PM"
+      form['scheduledDateTime'] = (time[0]%12 < 10 ? "0" : '')+ (time[0]%12 || 12) + ":" + (time[1] < 10 ? ('0' + time[1]) : time[1]) + "PM"
     }else if(time[0] < 12) {
       form['scheduledDateTime'] =  (time[0] < 10 ? ('0' + time[0]) : time[0]) + ":" + (time[1] < 10 ? ('0' + time[1]) : time[1]) + "AM"
     } 
@@ -56,7 +56,6 @@ const DataInput = ({isLogin, data, setData, getData}) => {
     today = today[2] + "-" + ( (today[0]<10) ? ("0"+today[0]) : today[0] ) + "-" + ( (today[1]<10) ? ("0"+today[1]) : today[1] )
 
     let getLog = getLocal('taskifyUser')
-    console.log(getLog)
     
     let obj = {
       ...form,
