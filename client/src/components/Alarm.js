@@ -9,6 +9,10 @@ const Alarm = ({curTime, scheduleTime,  audio, currentDate, creationDate, title,
       audio.loop = true;
 
       audio.play()
+
+      setTimeout(() => {
+        audio.pause()
+      }, 10000)
     }else{
     }
 
@@ -22,6 +26,7 @@ const Alarm = ({curTime, scheduleTime,  audio, currentDate, creationDate, title,
           <span>{scheduleTime}</span>
           <span>{creationDate}</span>
         </div>
+        <button>Close Alarm</button>
     </div>
   )
 }
