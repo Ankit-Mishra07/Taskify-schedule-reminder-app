@@ -28,6 +28,9 @@ const TodaySch = ({isLogin, data, setData, todayS, prev, setPrev, myCurrentTime,
                 audio={audio}
                 currentDate={currentDate}
                 creationDate={elem.creationDate}
+                title={elem.title}
+                link={elem.link}
+                
                 />
               }
               <div className={styles.card}>
