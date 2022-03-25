@@ -41,7 +41,7 @@ const TodaySch = ({isLogin, data, setData, todayS, prev, setPrev, myCurrentTime,
                 <a href={elem.link} target="_blank" 
                 onMouseOver={() => setForJoin(true)} 
                 onMouseLeave={() => setForJoin(false)}> 
-                {forJoin? 'Click here to join' : `Join Meet@${elem.scheduledDateTime}`}</a> : ""
+                {`Join Meet@${elem.scheduledDateTime}`}</a> : ""
                 }
                 </div>
                 

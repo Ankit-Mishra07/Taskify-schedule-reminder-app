@@ -27,7 +27,7 @@ const Alarm = ({curTime, scheduleTime,  audio, currentDate, creationDate, title,
   {alrm &&
     <div className={styles.alarm_box}>
         <h1>{title}</h1>
-        <a href={link ? link : ""} target="_blank" rel="noopener noreferrer">{link ? "Click Here to Join" : ""}</a>
+       {link ? <a href={link ? link : ""} target="_blank" rel="noopener noreferrer">{link ? "Click Here to Join" : ""}</a> : ""}
         <div className={styles.alrm_times}>
           <span><BsFillAlarmFill/> {scheduleTime}</span>
           <span><BsCalendar2Fill/>{creationDate.split("-").reverse().join('-')}</span>

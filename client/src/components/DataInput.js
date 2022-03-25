@@ -142,6 +142,8 @@ useEffect(() => {
           <button type='submit' onClick={(e) => handleData(e)} disabled={!isLogin}>Save</button>
         </div>
       </form>
+
+      <button className={styles.imp_link}>Important Links</button>
     </div>
   )
 }
