@@ -22,7 +22,7 @@ const TodaySch = ({isLogin, data, setData, todayS, prev, setPrev, myCurrentTime,
             todayS.map((elem) => (
               <>
               {
-                elem.scheduledDateTime===myCurrentTime &&
+                elem.scheduledDateTime===myCurrentTime && 
                 <Alarm curTime={myCurrentTime}
                 scheduleTime={elem.scheduledDateTime}
                 audio={audio}

@@ -86,6 +86,7 @@ const DataInput = ({isLogin, data, setData, getData}) => {
       setErrorMsg('Something went wrong')
     })
 
+    
    
   }
 
@@ -116,6 +117,7 @@ useEffect(() => {
         <input type="text" name='title' placeholder='Enter title here' required
         onChange={(e) => handleInput(e)}
         minlength="1" maxlength="60"
+        className='input-title'
         />
         </div>
 
@@ -124,6 +126,7 @@ useEffect(() => {
         <sup>*</sup></span>
         <input type="time" name='scheduledDateTime' required
         onChange={(e) => handleInput(e)}
+        className='input-time'
         />
         </div>
 
@@ -131,6 +134,7 @@ useEffect(() => {
         <span><label htmlFor='link'>Enter Meet URL</label></span>
         <input type="url"  name="link" placeholder='Optional(For Tasks)'
         onChange={(e) => handleInput(e)}
+        className='input-link'
         />
         </div>
 
