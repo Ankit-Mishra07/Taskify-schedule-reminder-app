@@ -20,7 +20,7 @@ const Home = () => {
   const [data, setData] = useState([])  
   const [currentDate, setCurrentDate] = useState("")
 
-  const [showAddLink, setShowAddLink] = useState(true)
+  const [showAddLink, setShowAddLink] = useState(false)
 
   const [todayS, setTodayS] = useState([])
 
@@ -96,6 +96,8 @@ const Home = () => {
        data={data}
        setData={setData}
        getData={getData}
+       showAddLink={showAddLink}
+       setShowAddLink={setShowAddLink}
 
       />
       <TodaySch 
@@ -139,7 +141,9 @@ const Home = () => {
 
     {
       showAddLink && 
-      <AddLink />
+      <AddLink 
+      setShowAddLink={setShowAddLink}
+      />
     }
     </>
   )

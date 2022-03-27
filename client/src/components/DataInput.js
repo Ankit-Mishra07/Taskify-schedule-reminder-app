@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from '../styles/datainput.module.css'
 import { getLocal } from '../utils/utils'
 import Error from './Error'
-const DataInput = ({isLogin, data, setData, getData}) => {
+const DataInput = ({isLogin, data, setData, getData, showAddLink,  setShowAddLink}) => {
   const [form, setForm] = useState({})
   const [error, setError] = useState(false)
   const [errorMsg, setErrorMsg] = useState("")
@@ -146,7 +146,7 @@ useEffect(() => {
       <h1 className={styles.imp_link}>Important Links</h1>
       <div className={styles.imp_btns}>
         <button>Saved Links</button>
-        <button>Add</button>
+        <button onClick={() => setShowAddLink(!showAddLink)}>Add</button>
       </div>
       </div>
     </div>
