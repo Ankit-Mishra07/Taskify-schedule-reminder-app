@@ -59,7 +59,9 @@
     margin: 10px;
     
 }
-
+.addLinkForm > input:nth-child(3) {
+    color: blue;
+}
 .addLinkForm > button {
     background-color: #1A374D;
     color: #B1D0E0;

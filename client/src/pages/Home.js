@@ -22,7 +22,7 @@ const Home = () => {
   const [currentDate, setCurrentDate] = useState("")
 
   const [showAddLink, setShowAddLink] = useState(false)
-  const [showSavedLinks, setShowSavedLinks] = useState(true)
+  const [showSavedLinks, setShowSavedLinks] = useState(false)
 
   const [todayS, setTodayS] = useState([])
 
@@ -100,6 +100,8 @@ const Home = () => {
        getData={getData}
        showAddLink={showAddLink}
        setShowAddLink={setShowAddLink}
+       setShowSavedLinks={setShowSavedLinks}
+       showSavedLinks={showSavedLinks}
 
       />
       <TodaySch 
@@ -142,15 +144,17 @@ const Home = () => {
 
 
     {
-      showAddLink && 
+      showAddLink && isLogin &&
       <AddLink 
       setShowAddLink={setShowAddLink}
       />
     }
 
     {
-      showSavedLinks && 
-      <SavedLinks />
+      showSavedLinks && isLogin && 
+      <SavedLinks 
+      setShowSavedLinks={setShowSavedLinks}
+      />
     }
     </>
   )
