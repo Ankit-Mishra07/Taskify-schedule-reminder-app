@@ -4,6 +4,7 @@ import DataInput from '../components/DataInput'
 import DataOutput from '../components/DataOutput'
 import Login from '../components/Login'
 import Navbar from '../components/Navbar'
+import SavedLinks from '../components/SavedLinks'
 import Signup from '../components/Signup'
 import TodaySch from '../components/TodaySch'
 import styles from '../styles/home.module.css'
@@ -21,6 +22,7 @@ const Home = () => {
   const [currentDate, setCurrentDate] = useState("")
 
   const [showAddLink, setShowAddLink] = useState(false)
+  const [showSavedLinks, setShowSavedLinks] = useState(true)
 
   const [todayS, setTodayS] = useState([])
 
@@ -144,6 +146,11 @@ const Home = () => {
       <AddLink 
       setShowAddLink={setShowAddLink}
       />
+    }
+
+    {
+      showSavedLinks && 
+      <SavedLinks />
     }
     </>
   )

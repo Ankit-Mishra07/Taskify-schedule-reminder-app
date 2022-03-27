@@ -1,0 +1,63 @@
+.savedLinks_container{
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: 1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    border: 1px solid gray;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    width: 50%;
+    height: 500px;
+}
+
+.saved_nav{
+    background-color: #1A374D;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.saved_nav > input {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 3px 2px;
+}
+
+.saved_cards {
+    background-color: #B1D0E0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+    padding: 5px 10px;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.saved_cards>a:nth-child(1) {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1A374D;
+    text-decoration: none;
+}
+.saved_cards > button {
+    background: none;
+    border: none;
+    outline: none;
+    color: orangered;
+    font-size: 20px;
+    cursor: pointer;
+
+}
+
+.saved_cards > button:active {
+    transform: scale(0.8);
+}
