@@ -116,7 +116,7 @@ useEffect(() => {
         <sup>*</sup></span>
         <input type="text" name='title' placeholder='Enter title here' required
         onChange={(e) => handleInput(e)}
-        minlength="1" maxlength="60"
+        minLength="1" maxLength="60"
         className='input-title'
         />
         </div>
@@ -142,8 +142,13 @@ useEffect(() => {
           <button type='submit' onClick={(e) => handleData(e)} disabled={!isLogin}>Save</button>
         </div>
       </form>
-
-      <button className={styles.imp_link}>Important Links</button>
+      <div className={styles.imp_linkbtn_box}>
+      <h1 className={styles.imp_link}>Important Links</h1>
+      <div className={styles.imp_btns}>
+        <button>Saved Links</button>
+        <button>Add</button>
+      </div>
+      </div>
     </div>
   )
 }

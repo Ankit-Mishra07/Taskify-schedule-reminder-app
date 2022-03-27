@@ -57,3 +57,43 @@
     transform: scale(0.9);
     
 }
+
+
+.imp_linkbtn_box{
+    background-color:#B1D0E0;
+    width: 100%;
+    margin-top: 30px;
+    padding: 20px;
+    padding-top: 10px;
+    border-radius: 5px;
+    transition: all 0.1s ease;
+}
+
+.imp_linkbtn_box:hover {
+    transform: scale(1.01);
+}
+.imp_link{
+    font-size: 20px;
+    color: #1A374D;
+}
+
+.imp_btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.imp_btns > button {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: #1A374D;
+    color: #B1D0E0;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+.imp_btns > button:active {
+    transform: scale(0.9);
+}
+

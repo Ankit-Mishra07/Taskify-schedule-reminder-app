@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import audio from '../components/audio'
+import AddLink from '../components/AddLink'
 import DataInput from '../components/DataInput'
 import DataOutput from '../components/DataOutput'
 import Login from '../components/Login'
@@ -19,6 +19,8 @@ const Home = () => {
   const [user, setUser] = useState([])
   const [data, setData] = useState([])  
   const [currentDate, setCurrentDate] = useState("")
+
+  const [showAddLink, setShowAddLink] = useState(true)
 
   const [todayS, setTodayS] = useState([])
 
@@ -80,6 +82,7 @@ const Home = () => {
   
 
 
+
   return (
     <>
     <Navbar setShowSignup={setShowSignup} showSignup={showSignup} setShowLogin={setShowLogin} showLogin={showLogin}
@@ -131,6 +134,12 @@ const Home = () => {
       isLogin={isLogin}
       setIsLogin={setIsLogin}
       />
+    }
+
+
+    {
+      showAddLink && 
+      <AddLink />
     }
     </>
   )
