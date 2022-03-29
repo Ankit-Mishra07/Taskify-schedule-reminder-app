@@ -33,6 +33,16 @@ router.get("/", async(req, res) => {
 })
 
 
+router.delete('/:id', async(req, res) => {
+    try{
+        const data = await Data.findByIdAndDelete(req.params.id)
+        return res.status(200).send(data)
+    }catch(e){
+        return res.status(500).json({status: "Failed", message: e.message})
+    }
+})
+
+
 
 module.exports = router
 
