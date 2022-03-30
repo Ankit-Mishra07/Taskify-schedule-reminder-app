@@ -40,4 +40,20 @@ router.delete('/:id', async(req, res) => {
     }
 })
 
+
+router.get('/search', async (req, res) => {
+
+    try {
+        let url;
+        let que = req.query.q
+         url = await Url.find({title : {$regex : `/${que}/`}})
+        
+        return res.status(200).send(url)
+
+    }catch(e) {
+        return res.status(500).json({status: "Failed", message: e.message})
+    }
+
+})
+
 module.exports = router;

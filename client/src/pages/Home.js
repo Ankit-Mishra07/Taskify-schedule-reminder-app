@@ -43,7 +43,7 @@ const Home = () => {
   
   useEffect(() => {
     let getLog = getLocal('taskifyUser')
-    if(getLog === null || getLog.length === 0) {
+    if(getLog === null || getLog.length === 0 || !getLog) {
       setIsLogin(false)
     } else {
       setIsLogin(true)
@@ -144,9 +144,10 @@ const Home = () => {
 
 
     {
-      showAddLink && isLogin &&
+      showAddLink && 
       <AddLink 
       setShowAddLink={setShowAddLink}
+      isLogin={isLogin}
       />
     }
 
