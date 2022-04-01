@@ -1,8 +1,62 @@
 .dataOut_container{
-    margin: 50px;
+    /* margin: 50px;
     border: 6px solid #406882;
     border-radius: 5px;
-    text-align: center;
+    text-align: center; */
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: 1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    border: 1px solid gray;
+    padding: 20px;
+    padding-top: 0;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    width: 60%;
+    height: 500px;
+    border: 6px solid #406882;
+    overflow: auto;
+}
+
+.dataOut_container::-webkit-scrollbar{
+    width: 10px;
+    margin-right: 12px;
+}
+.dataOut_container::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #406882; 
+    border-radius: 10px;
+}
+.dataOut_container::-webkit-scrollbar-thumb{
+    background:#6998AB; 
+    border-radius: 10px;
+}
+.dataOut_container::-webkit-scrollbar-thumb:hover {
+    background: #406882; 
+}
+.cut {
+    margin: 5px 0;
+    margin-left: auto;
+    border: none;
+    outline: none;
+    background: none;
+    color: orangered;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0 5px;
+    border-radius: 50%;
+}
+
+.cut:hover {
+    background-color: orangered;
+    color: #fff;
+}
+.cut:active {
+    transform: scale(0.9);
 }
 
 
@@ -19,6 +73,8 @@
     margin-bottom: 5px;
     padding: 10px;
     transition: 0.4s ease; 
+
+
 }
 
 .dataOut_nav:hover {
@@ -53,6 +109,8 @@
     transform: scale(0.5);
 }
 
+
+
 .card{
     background-color: #B1D0E0;
     width: 95%;
@@ -62,16 +120,59 @@
     padding: 8px 15px;
     border-radius: 5px;
     margin-top: 5px;
+    transition: 0.2s ease;
+}
+.card:hover {
+    transform: scale(1.01);
 }
 
 .card>div:nth-child(1){
     text-align: left;
     color: #1A374D;
     font-weight: 600;
-    
+    overflow: hidden;
 } 
 
+.card>div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.card>div:nth-child(2) a {
+    text-decoration: none;
+    background-color: #1A374D;
+    color: #fff;
+    padding: 4px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: underline #B1D0E0;
+    transition:all 1s ease;
+}
 
+.card>div:nth-child(3) {
+    text-align: left;
+    color: #1A374D;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+.card>div:nth-child(3) > span:nth-child(1) {
+    vertical-align:middle;
+}
+
+.card>div:nth-child(4) {
+    color: #1A374D;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 5px;
+}
+
+
+.cardsCont {
+    /* border: 1px solid; */
+    width: 100%;
+}
 
 
 

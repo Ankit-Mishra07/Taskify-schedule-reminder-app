@@ -120,6 +120,8 @@ const Home = () => {
       prev &&
 
       <DataOutput 
+      prev={prev}
+      setPrev={setPrev}
        isLogin={isLogin}
        data={data}
        setData={setData}
