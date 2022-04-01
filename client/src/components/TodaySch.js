@@ -12,7 +12,7 @@ const TodaySch = ({isLogin, data, setData, todayS, prev, setPrev, myCurrentTime,
     <div className={styles.dataOut_container}>
       <nav className={styles.dataOut_nav}>
         <h3>Today's Schedule</h3>
-        <button>See Previous Schedules</button>
+        <button onClick={() => setPrev(!prev)}>See Previous Schedules</button>
       </nav>
 
       {
