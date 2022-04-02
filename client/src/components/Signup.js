@@ -67,6 +67,8 @@ const Signup = ({showSignup, setShowSignup, setShowLogin}) => {
 
   return (
     <div className={styles.signup_box}>
+
+        <button className={styles.cut } onClick={() => setShowSignup(false)}>X</button>
         {error && 
           <Error text={errorMsg} />
         }

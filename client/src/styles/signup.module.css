@@ -67,4 +67,23 @@
     color: #1A374D;
 }
 
+.cut {
+    margin-left: auto;
+    border: none;
+    outline: none;
+    background: none;
+    color: orangered;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0 5px;
+    border-radius: 50%;
+}
+
+.cut:hover {
+    background-color: orangered;
+    color: #fff;
+}
+.cut:active {
+    transform: scale(0.9);
+}
 
