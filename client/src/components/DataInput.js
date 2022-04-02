@@ -3,7 +3,12 @@ import styles from '../styles/datainput.module.css'
 import { getLocal } from '../utils/utils'
 import Error from './Error'
 const DataInput = ({isLogin, data, setData, getData, showAddLink,  setShowAddLink, setShowSavedLinks, showSavedLinks}) => {
-  const [form, setForm] = useState({})
+  const [form, setForm] = useState({
+    title : "",
+    scheduledDateTime : "",
+    link : ""
+
+  })
   const [error, setError] = useState(false)
   const [errorMsg, setErrorMsg] = useState("")
 
@@ -79,7 +84,11 @@ const DataInput = ({isLogin, data, setData, getData, showAddLink,  setShowAddLin
       }
       console.log(res)
       getData()
-
+      setForm({
+        title : "",
+        scheduledDateTime : "",
+        link : ""
+      })
     })
     .catch((e) => {
       setError(true)
@@ -118,6 +127,7 @@ useEffect(() => {
         onChange={(e) => handleInput(e)}
         minLength="1" maxLength="60"
         className='input-title'
+        value={form.title}
         />
         </div>
 
@@ -127,6 +137,7 @@ useEffect(() => {
         <input type="time" name='scheduledDateTime' required
         onChange={(e) => handleInput(e)}
         className='input-time'
+        value={form.scheduledDateTime}
         />
         </div>
 
@@ -135,6 +146,7 @@ useEffect(() => {
         <input type="url"  name="link" placeholder='Optional(For Tasks)'
         onChange={(e) => handleInput(e)}
         className='input-link'
+        value={form.link}
         />
         </div>
 
