@@ -3,6 +3,7 @@ import AddLink from '../components/AddLink'
 import DataInput from '../components/DataInput'
 import DataOutput from '../components/DataOutput'
 import Login from '../components/Login'
+import Logout from '../components/Logout'
 import Navbar from '../components/Navbar'
 import SavedLinks from '../components/SavedLinks'
 import Signup from '../components/Signup'
@@ -25,6 +26,8 @@ const Home = () => {
   const [showSavedLinks, setShowSavedLinks] = useState(false)
 
   const [todayS, setTodayS] = useState([])
+
+  const [showLogout, setShowLogout] = useState(false)
 
 
   const [myCurrentTime, setMyCurrentTime] = useState("Time")
@@ -105,6 +108,9 @@ const Home = () => {
     <Navbar setShowSignup={setShowSignup} showSignup={showSignup} setShowLogin={setShowLogin} showLogin={showLogin}
      isLogin={isLogin}
      user={user}
+
+     setShowLogout={setShowLogout}
+     showLogout={showLogout}
     />
 
     <div className={styles.main__container}>
@@ -173,6 +179,15 @@ const Home = () => {
       showSavedLinks && isLogin && 
       <SavedLinks 
       setShowSavedLinks={setShowSavedLinks}
+      />
+    }
+
+
+    {
+      showLogout && 
+      <Logout 
+      showLogout={showLogout}
+      setShowLogout={setShowLogout}
       />
     }
     </>
