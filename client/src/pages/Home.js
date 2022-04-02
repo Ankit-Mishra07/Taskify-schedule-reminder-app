@@ -66,6 +66,21 @@ const Home = () => {
     setTodayS(cur)
     
   }
+
+
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/data/${id}`, {
+      method : 'DELETE'
+    })
+    .then((res) => res.json())
+    .then((res) => {
+    console.log(res)
+    })
+    .catch((e) => {
+      console.log(e)
+    })
+  }
+
   
   useEffect(() => {
     let timeElapsed = Date.now();
@@ -125,6 +140,7 @@ const Home = () => {
        isLogin={isLogin}
        data={data}
        setData={setData}
+       handleDelete={handleDelete}
       />
     } 
 
