@@ -100,8 +100,7 @@ const Home = () => {
 
   
   useEffect(() => {
-    // let dat = getData()
-    // setData(dat)
+
 getData()
 
   },[isLogin])
@@ -182,7 +181,7 @@ getData()
 
 
     {
-      showAddLink && 
+      showAddLink && isLogin &&
       <AddLink 
       setShowAddLink={setShowAddLink}
       isLogin={isLogin}
