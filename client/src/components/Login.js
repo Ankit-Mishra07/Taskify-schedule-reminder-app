@@ -42,9 +42,7 @@ const Login = ({setShowSignup, setShowLogin, isLogin, setIsLogin, getData}) => {
         swal("Thank You", "You have logged in successfully!", "success");
         setLocal("taskifyUser", res)
         setIsLogin(true)
-        setTimeout(() => {
-          getData()
-        },1000)
+        getData()
 
       }
     })
