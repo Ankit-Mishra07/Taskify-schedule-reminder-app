@@ -144,8 +144,9 @@ getData()
        myCurrentTime={myCurrentTime}
        audio={audio}
        currentDate={currentDate}
-     getData={getData}
-
+       getData={getData}
+       handleDelete={handleDelete}
+       setTodayS={setTodayS}
       />
     </div>
     {

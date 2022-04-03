@@ -165,6 +165,19 @@
     transform: scale(0.3);
 }
 
+.card:hover .del{
+    opacity: 1;
+}
+.del{
+    margin-right: auto;
+    border:none;
+    outline: none;
+    background: none;
+    color: orangered;
+    font-size: 16px;
+    opacity: 0;
+    cursor: pointer;
+}
 
 
 
