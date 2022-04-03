@@ -3,7 +3,7 @@ import Error from './Error'
 import styles from '../styles/signup.module.css'
 import swal from 'sweetalert'
 import { setLocal } from '../utils/utils'
-const Login = ({setShowSignup, setShowLogin, isLogin, setIsLogin}) => {
+const Login = ({setShowSignup, setShowLogin, isLogin, setIsLogin, getData}) => {
 
   const [error, setError] = useState(false)
   const [errorMsg, setErrorMsg] = useState("")
@@ -38,12 +38,13 @@ const Login = ({setShowSignup, setShowLogin, isLogin, setIsLogin}) => {
         setErrorMsg('')
         setShowLogin(false)
 
-        setLocal("taskifyUser", res)
-
-        setIsLogin(true)
-
+        
         swal("Thank You", "You have logged in successfully!", "success");
-
+        setLocal("taskifyUser", res)
+        setIsLogin(true)
+        setTimeout(() => {
+          getData()
+        },1000)
 
       }
     })
@@ -52,6 +53,9 @@ const Login = ({setShowSignup, setShowLogin, isLogin, setIsLogin}) => {
 
   return (
     <div className={styles.signup_box}>
+        <button className={styles.cut}
+        onClick={() => setShowLogin(false)}
+        >X</button>
     {error && 
       <Error text={errorMsg} />
     }

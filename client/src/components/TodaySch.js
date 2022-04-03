@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import styles from '../styles/todaysch.module.css'
 import {BsCalendar2Fill, BsFillAlarmFill} from 'react-icons/bs'
 import Alarm from './Alarm'
+import {IoReloadOutline} from 'react-icons/io5'
 
-const TodaySch = ({isLogin, data, setData, todayS, prev, setPrev, myCurrentTime, audio, currentDate}) => {
+const TodaySch = ({isLogin, data, setData, todayS, prev, setPrev, myCurrentTime, audio, currentDate, getData}) => {
 
 
   const [forJoin, setForJoin] = useState(false)
@@ -11,7 +12,11 @@ const TodaySch = ({isLogin, data, setData, todayS, prev, setPrev, myCurrentTime,
   return (
     <div className={styles.dataOut_container}>
       <nav className={styles.dataOut_nav}>
+
+        <span className={styles.reloadbtn}>
+        <button onClick={() => getData()}><IoReloadOutline /></button>
         <h3>Today's Schedule</h3>
+        </span>
         <button onClick={() => setPrev(!prev)}>See Previous Schedules</button>
       </nav>
 
@@ -33,7 +38,7 @@ const TodaySch = ({isLogin, data, setData, todayS, prev, setPrev, myCurrentTime,
                 
                 />
               }
-              <div className={styles.card}>
+              <div className={styles.card} key={elem._id} >
 
 
                 <div>{elem.title}</div>

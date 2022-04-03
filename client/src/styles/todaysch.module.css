@@ -79,7 +79,7 @@
 .dataOut_nav > button:active {
     background-color: #B1D0E0;
     color: #1A374D;
-    transform: scale(0.5);
+    transform: scale(0.95);
 }
 
 .card{
@@ -139,6 +139,31 @@
     margin-top: 5px;
 }
 
+.reloadbtn {
+    display: flex;
+    align-items: center;
+}
+
+.reloadbtn button {
+    cursor: pointer;
+    padding: none;
+    background:none;
+   color: #1A374D;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    padding-top: 3px;
+    border-radius: 50%;
+    font-weight: 900;
+    margin-right: 10px;
+    vertical-align: middle;
+    transition: all 1s ease;
+
+}
+
+.reloadbtn button:active {
+    transform: scale(0.3);
+}
 
 
 

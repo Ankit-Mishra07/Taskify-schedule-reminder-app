@@ -59,7 +59,7 @@ const Home = () => {
   const getData = async () => {
     let res = await fetch(`http://localhost:5000/data?user=${user._id}`)
     let dat = await res.json()
-    console.log("data" ,dat)
+    console.log("data inside getData" ,dat)
     setData(dat)
     
     let cur = dat.filter((el) => {
@@ -67,7 +67,7 @@ const Home = () => {
     })
     console.log(currentDate)
     setTodayS(cur)
-    
+    return dat
   }
 
 
@@ -95,11 +95,20 @@ const Home = () => {
       setCurrentDate(today)
   }, [currentDate])
 
+
+
+
+  
   useEffect(() => {
-    getData()
-  },[currentDate])
+    // let dat = getData()
+    // setData(dat)
+getData()
+
+  },[isLogin])
+
   
-  
+
+
 
 
 
@@ -135,6 +144,8 @@ const Home = () => {
        myCurrentTime={myCurrentTime}
        audio={audio}
        currentDate={currentDate}
+     getData={getData}
+
       />
     </div>
     {
@@ -147,6 +158,7 @@ const Home = () => {
        data={data}
        setData={setData}
        handleDelete={handleDelete}
+       
       />
     } 
 
@@ -163,6 +175,7 @@ const Home = () => {
       <Login setShowSignup={setShowSignup} setShowLogin={setShowLogin}
       isLogin={isLogin}
       setIsLogin={setIsLogin}
+      getData={getData}
       />
     }
 
