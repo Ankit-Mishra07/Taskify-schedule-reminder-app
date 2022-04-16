@@ -29,7 +29,7 @@ const Signup = ({showSignup, setShowSignup, setShowLogin}) => {
       return
     }
 
-    fetch('http://localhost:5000/user/register', {
+    fetch('https://thawing-dawn-23134.herokuapp.com/user/register', {
       method : 'POST',
       body : JSON.stringify(signForm),
       headers : {

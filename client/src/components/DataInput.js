@@ -68,7 +68,7 @@ const DataInput = ({isLogin, data, setData, getData, showAddLink,  setShowAddLin
       userId : getLog[getLog.length-1]._id
     }
 
-    fetch('http://localhost:5000/data', {
+    fetch('https://thawing-dawn-23134.herokuapp.com/data', {
       method : 'POST',
       body : JSON.stringify(obj),
       headers : {

@@ -57,7 +57,7 @@ const Home = () => {
   
   
   const getData = async () => {
-    let res = await fetch(`http://localhost:5000/data?user=${user._id}`)
+    let res = await fetch(`https://thawing-dawn-23134.herokuapp.com/data?user=${user._id}`)
     let dat = await res.json()
     console.log("data inside getData" ,dat)
     setData(dat)
@@ -72,7 +72,7 @@ const Home = () => {
 
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/data/${id}`, {
+    fetch(`https://thawing-dawn-23134.herokuapp.com/data/${id}`, {
       method : 'DELETE'
     })
     .then((res) => res.json())

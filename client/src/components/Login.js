@@ -21,7 +21,7 @@ const Login = ({setShowSignup, setShowLogin, isLogin, setIsLogin, getData}) => {
       return
     }
 
-    fetch('http://localhost:5000/user/login', {
+    fetch('https://thawing-dawn-23134.herokuapp.com/user/login', {
       method: 'POST',
       body : JSON.stringify(num),
       headers : {
