@@ -3,3 +3,21 @@
     grid-template-columns: 40% 60%;
     
 }
+
+@media only screen and (min-width : 426px) and (max-width : 768px) {
+    html {
+        font-size: 98%;
+    }
+    .main__container {
+        grid-template-columns: 100%;
+    }
+}
+
+@media only screen and (min-width : 326px) and (max-width : 425px) {
+    html {
+        font-size: 80%;
+}
+    .main__container {
+        grid-template-columns: 100%;
+    }
+}

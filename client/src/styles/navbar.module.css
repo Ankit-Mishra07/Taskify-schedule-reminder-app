@@ -11,6 +11,8 @@
     justify-content: space-between;
     align-items: center;
     padding-right: 10%;
+    box-sizing: border-box;
+
 }
 
 .logo {
