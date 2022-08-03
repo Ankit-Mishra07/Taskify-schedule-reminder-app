@@ -29,7 +29,7 @@ const Signup = ({showSignup, setShowSignup, setShowLogin}) => {
       return
     }
 
-    fetch('https://thawing-dawn-23134.herokuapp.com/user/register', {
+    fetch('https://taskifyserver.herokuapp.com/user/register', {
       method : 'POST',
       body : JSON.stringify(signForm),
       headers : {

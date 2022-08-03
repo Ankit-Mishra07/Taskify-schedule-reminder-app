@@ -30,7 +30,7 @@ const AddLink = ({setShowAddLink, isLogin}) => {
         userId : getLog[getLog.length-1]._id
       }
 
-      fetch(`https://thawing-dawn-23134.herokuapp.com/url`, {
+      fetch(`https://taskifyserver.herokuapp.com/url`, {
         method : 'POST',
         body : JSON.stringify(payload),
         headers : {

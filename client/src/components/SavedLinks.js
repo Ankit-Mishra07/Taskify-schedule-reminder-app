@@ -11,7 +11,7 @@ const SavedLinks = ({setShowSavedLinks}) => {
 
 
   const getSavedUrlData = async () => {
-    let res = await fetch(`https://thawing-dawn-23134.herokuapp.com/url?user=${getLog[getLog.length-1]._id}`)
+    let res = await fetch(`https://taskifyserver.herokuapp.com/url?user=${getLog[getLog.length-1]._id}`)
     let dat = await res.json()
     setSavedUrlData(dat)
   }
@@ -21,7 +21,7 @@ const SavedLinks = ({setShowSavedLinks}) => {
   },[])
 
   const getSearchedData = async (title) => {
-    let res = await fetch(`https://thawing-dawn-23134.herokuapp.com/url/search/${title}`)
+    let res = await fetch(`https://taskifyserver.herokuapp.com/url/search/${title}`)
     let dat = await res.json()
     setSavedUrlData(dat)
   }
@@ -40,7 +40,7 @@ const SavedLinks = ({setShowSavedLinks}) => {
   },[title])
 
   const handleDeleteUrl = (id) => {
-    fetch(`https://thawing-dawn-23134.herokuapp.com/url/${id}`, {
+    fetch(`https://taskifyserver.herokuapp.com/url/${id}`, {
       method : 'DELETE'
     }).then(res => res.json())
     .then(res => {
