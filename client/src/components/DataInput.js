@@ -68,7 +68,7 @@ const DataInput = ({isLogin, data, setData, getData, showAddLink,  setShowAddLin
       userId : getLog[getLog.length-1]._id
     }
 
-    fetch('https://taskifyserver.herokuapp.com/data', {
+    fetch('https://taskify-server.onrender.com/data', {
       method : 'POST',
       body : JSON.stringify(obj),
       headers : {

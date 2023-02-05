@@ -57,7 +57,7 @@ const Home = () => {
   
   
   const getData = async () => {
-    let res = await fetch(`https://taskifyserver.herokuapp.com/data?user=${user._id}`)
+    let res = await fetch(`https://taskify-server.onrender.com/data?user=${user._id}`)
     let dat = await res.json()
     console.log("data inside getData" ,dat)
     setData(dat)
@@ -72,7 +72,7 @@ const Home = () => {
 
 
   const handleDelete = (id) => {
-    fetch(`https://taskifyserver.herokuapp.com/data/${id}`, {
+    fetch(`https://taskify-server.onrender.com/data/${id}`, {
       method : 'DELETE'
     })
     .then((res) => res.json())

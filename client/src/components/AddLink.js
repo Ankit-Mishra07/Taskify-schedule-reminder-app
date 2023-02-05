@@ -30,7 +30,7 @@ const AddLink = ({setShowAddLink, isLogin}) => {
         userId : getLog[getLog.length-1]._id
       }
 
-      fetch(`https://taskifyserver.herokuapp.com/url`, {
+      fetch(`https://taskify-server.onrender.com/url`, {
         method : 'POST',
         body : JSON.stringify(payload),
         headers : {

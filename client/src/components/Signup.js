@@ -29,7 +29,7 @@ const Signup = ({showSignup, setShowSignup, setShowLogin}) => {
       return
     }
 
-    fetch('https://taskifyserver.herokuapp.com/user/register', {
+    fetch('https://taskify-server.onrender.com/user/register', {
       method : 'POST',
       body : JSON.stringify(signForm),
       headers : {

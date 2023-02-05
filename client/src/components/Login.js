@@ -21,7 +21,7 @@ const Login = ({setShowSignup, setShowLogin, isLogin, setIsLogin, getData}) => {
       return
     }
 
-    fetch('https://taskifyserver.herokuapp.com/user/login', {
+    fetch('https://taskify-server.onrender.com/user/login', {
       method: 'POST',
       body : JSON.stringify(num),
       headers : {
